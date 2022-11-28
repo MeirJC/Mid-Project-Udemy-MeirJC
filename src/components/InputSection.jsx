@@ -1,6 +1,8 @@
 import axios from "axios";
 import React from "react";
 import { useFetch } from "../useFetch";
+// import { Buffer } from "buffer";
+
 // ==========================================================================
 
 // Client Id
@@ -12,7 +14,10 @@ import { useFetch } from "../useFetch";
 // zl9rPjyXfjcuaFvtcKUq4KMWHffmU0pPKEJNV1APuhV3L9kIdVzqJNGIurkLXTnfz4L8ezAysH85SOi422XHY4VJDqhXF2F2PPFW61LlpJ9ajLhemGxBuK3f0LLTAgsj
 
 // Sending an Authenticated Request
-
+// const a =
+// "EXSdV7HYilSjUd5jVkpuJ0Lkd1ZGM9dBnap8KE0M:zl9rPjyXfjcuaFvtcKUq4KMWHffmU0pPKEJNV1APuhV3L9kIdVzqJNGIurkLXTnfz4L8ezAysH85SOi422XHY4VJDqhXF2F2PPFW61LlpJ9ajLhemGxBuK3f0LLTAgsj";
+// const buffer = Buffer.from(a);
+// const aTo64Data = buffer.toString("base64");
 // Udemy Affiliate API requires basic authentication parameters to validate the client.
 // The auth parameters have to be sent in every call or you will get a 401 UNAUTHORIZED error.
 // To send authenticated requests, provide the client_id and client_secret values as a base64 encoded HTTP Authorization header.
@@ -29,12 +34,22 @@ function InputSection() {
         <div>
           <button
             onClick={async () => {
+              // const req = axios.create({
+              //   headers: {
+              //     "Content-Type": "aplication/json",
+              //     Authorization: "Basic " + aTo64Data,
+              //   },
+              // });
               const url =
                 "https://intense-mesa-62220.herokuapp.com/https://www.udemy.com/api-2.0/courses/?search=java";
-              const userPass =
-                "EXSdV7HYilSjUd5jVkpuJ0Lkd1ZGM9dBnap8KE0M:zl9rPjyXfjcuaFvtcKUq4KMWHffmU0pPKEJNV1APuhV3L9kIdVzqJNGIurkLXTnfz4L8ezAysH85SOi422XHY4VJDqhXF2F2PPFW61LlpJ9ajLhemGxBuK3f0LLTAgsj";
+              // const data = req.get(url);
+              // const userPass =
+              //   "EXSdV7HYilSjUd5jVkpuJ0Lkd1ZGM9dBnap8KE0M:zl9rPjyXfjcuaFvtcKUq4KMWHffmU0pPKEJNV1APuhV3L9kIdVzqJNGIurkLXTnfz4L8ezAysH85SOi422XHY4VJDqhXF2F2PPFW61LlpJ9ajLhemGxBuK3f0LLTAgsj";
               const { data } = await axios.get(url, {
                 // headers: { Authorization: `Basic ` + userPass },
+                // Authorization: `Basic ${BASE64_ENCODED(
+                //   "EXSdV7HYilSjUd5jVkpuJ0Lkd1ZGM9dBnap8KE0M:zl9rPjyXfjcuaFvtcKUq4KMWHffmU0pPKEJNV1APuhV3L9kIdVzqJNGIurkLXTnfz4L8ezAysH85SOi422XHY4VJDqhXF2F2PPFW61LlpJ9ajLhemGxBuK3f0LLTAgsj"
+                // )}`,
                 auth: {
                   username: "EXSdV7HYilSjUd5jVkpuJ0Lkd1ZGM9dBnap8KE0M",
                   password:
